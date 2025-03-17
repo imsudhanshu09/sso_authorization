@@ -2,17 +2,17 @@ import React, { useState, useEffect } from "react";
 import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import JWSToken from "./jwstoken";
-import Protected from "./Protected";
+// import JWSToken from "./jwstoken";
+// import Protected from "./Protected";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyA3en2vVlf41XtHkjnbQFJhLN9CCbOeF18",
-    authDomain: "single-sign-on-183d9.firebaseapp.com",
-    projectId: "single-sign-on-183d9",
-    storageBucket: "single-sign-on-183d9.firebasestorage.app",
-    messagingSenderId: "976885085363",
-    appId: "1:976885085363:web:b18faf4bd2369147956cc6",
-    measurementId: "G-JRL0YJM0PF"
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_FIREBASE_APP_ID,
+    measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
 };
 
 const app = initializeApp(firebaseConfig);
@@ -65,8 +65,8 @@ export default function SSOLogin() {
             ) : (
                 <button onClick={handleLogin}>Sign in with Google</button>
             )}
-            <JWSToken />
-            <Protected />
+            {/* <JWSToken />
+            <Protected /> */}
         </div>
     );
 }
